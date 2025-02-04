@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff0f5;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #ff69b4;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .yes-button, .no-button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .yes-button {
+            background-color: #ff69b4;
+            color: white;
+        }
+        .no-button {
+            background-color: #fff;
+            color: #ff69b4;
+            border: 2px solid #ff69b4;
+        }
+        .gif_container {
+            margin-top: 20px;
+        }
+        .gif_container img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will you be my Valentine ya helo?</h1>
+        <div class="buttons">
+            <button class="yes-button" onclick="handleYesClick()">Yes</button>
+            <button class="no-button" onclick="handleNoClick()">No</button>
+        </div>
+        <div class="gif_container">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif" alt="Cute GIF">
+        </div>
+    </div>
+    <script>
+        const noButton = document.querySelector('.no-button');
+        const yesButton = document.querySelector('.yes-button');
+        const noMessages = [
+            "Are you sure?",
+            "Please reconsider!",
+            "Don't break my heart!",
+            "I know you want to say yes!"
+        ];
+        let clickCount = 0;
+
+
+        function handleNoClick() {
+            if (clickCount < noMessages.length) {
+                noButton.textContent = noMessages[clickCount];
+                clickCount++;
+                yesButton.style.transform = `scale(${1 + clickCount * 0.1})`;
+            } else {
+                noButton.textContent = "Okay, I give up!";
+                noButton.disabled = true;
+            }
+        }
+
+
+        function handleYesClick() {
+            document.body.innerHTML = `
+                <div class="container">
+                    <h1 style="font-size: 2.5em; color: #ff69b4;">Knew you would say yes! Love you Janjoun</h1>
+                    <div class="gif_container">
+                        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo3c3l5ODh3ZGN6NHhhaDE2Mjg1ZjkwOXczdDFxbWM3dTBtaW9zaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9XY4f3FgFTT4QlaYqa/giphy.gif" alt="Happy GIF">
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
